@@ -58,3 +58,54 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${Student.name}`)
     }
 }
+
+const person1 = new Person({
+    name: 'Peggy',
+    age: 24,
+    location: 'South Carolina'
+})
+const person2 = new Person({
+    name: 'Derrel',
+    age: 32,
+    location: 'Oklahoma'
+})
+const instructor1 = new Instructor({
+    name: 'Dory',
+    age: 29,
+    location: 'Sydney',
+    speciality: 'Front End',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Just keep swimming'
+})
+const instructor2 = new Instructor({
+    name: 'Nemo',
+    age: 20,
+    location: 'Hawaii',
+    speciality: 'Back End',
+    favLanguage: 'Python',
+    catchPhrase: 'If at first you don\'t succeed, try, try again!'
+})
+const student1 = new Student({
+    name: 'Christine',
+    age: 39,
+    location: 'Tulsa',
+    previousBackground: 'Nursing',
+    className: 'Web 23',
+    favSubjects: ['React','CSS', 'JavaScript', 'UI/UX']
+})
+const student2 = new Student({
+    name: 'Kevin',
+    age: 28,
+    location: 'Boston',
+    previousBackground: 'Clerk',
+    className: 'Web 21',
+    favSubjects: ['Java','Python', 'JavaScript', 'C#']
+})
+const student3 = new Student({
+    name: 'Lori',
+    age: 44,
+    location: 'Texas',
+    previousBackground: 'Stay at home mom',
+    className: 'UI/UX 4',
+    favSubjects: ['UI/UX','HTML','CSS', 'LESS']
+})
