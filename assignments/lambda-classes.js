@@ -15,12 +15,12 @@ class Instructor extends Person {
         super(instAttrs);
         this.speciality = instAttrs.speciality,
         this.favLanguage = instAttrs.favLanguage,
-        this.catchPhrase = instAttrs.catchPhrase,
+        this.catchPhrase = instAttrs.catchPhrase
     }
-    demo(){
+    demo(subject){
         console.log(`Today we are learning about ${subject}`);
     }
-    grade(){
+    grade(subject){
         console.log(`${Student.name} receives a perfect score on ${subject}`);
     }
 }
@@ -33,14 +33,14 @@ class Student extends Person {
         this.favSubjects = studentAttrs.favSubjects     
     }
     listsSubjects(){
-        this.favSubjects[i].forEach(element => {
-            console.log(this.favSubjects[i]);
+        this.favSubjects.forEach(function(i) {
+            console.log((i));
         });
     }
-    PRAssignment(){
+    PRAssignment(subject){
         console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
-    sprintChalleng(){
+    sprintChallenge(subject){
         console.log(`${this.name} has begun Sprint challenge on ${subject}.`);
     }
 }
@@ -51,11 +51,11 @@ class ProjectManager extends Instructor {
         this.gradClassName = PMAttrs.gradClassName,
         this.favInstructor = PMAttrs.favInstructor
     }
-    standup(){
+    standup(channel){
         console.log(`${this.name} announces to ${channel}, @channel stand up time!`);
     }
-    debugsCode(){
-        console.log(`${this.name} debugs ${Student.name}`)
+    debugsCode(subject){
+        console.log(`${this.name} debugs ${Student.name} on ${subject}`)
     }
 }
 
@@ -109,3 +109,55 @@ const student3 = new Student({
     className: 'UI/UX 4',
     favSubjects: ['UI/UX','HTML','CSS', 'LESS']
 })
+const projectManager1 = new ProjectManager({
+    name: 'Jack',
+    age: 35,
+    location: 'LA',
+    speciality: 'Back End',
+    favLanguage: 'Java',
+    catchPhrase: 'Never quit!',
+    gradClassName: 'CS3',
+    favInstructor: 'Britt',
+})
+const projectManager2 = new ProjectManager({
+    name: 'Mitch',
+    age: 40,
+    location: 'OKC',
+    speciality: 'Front End',
+    favLanguage: 'HTML/CSS',
+    catchPhrase: 'Fail until you succeed',
+    gradClassName: 'Web 15',
+    favInstructor: 'Dan',
+})
+
+console.log(person1.speak());
+console.log(person2.speak());
+console.log(instructor1.demo('JavaScript'));
+console.log(instructor2.demo('Python'));
+console.log(instructor1.grade('CSS'));
+console.log(instructor2.grade('Java'));
+console.log(student1.listsSubjects());
+console.log(student2.listsSubjects());
+console.log(student3.listsSubjects());
+console.log(student1.PRAssignment('JavaScript'));
+console.log(student2.PRAssignment('CSS'));
+console.log(student3.PRAssignment('HTML'));
+console.log(student1.sprintChallenge('JavaScript'));
+console.log(student2.sprintChallenge('HTML'));
+console.log(student3.sprintChallenge('LESS'));
+console.log(projectManager1.standup('Web22'));
+console.log(projectManager2.standup('Web21'));
+console.log(projectManager1.debugsCode('JavaScript'));
+console.log(projectManager2.debugsCode('HTML'));
+
+console.log(person1.name, person1.age, person1.location);
+console.log(person2.name, person2.age, person2.location);
+console.log(instructor1.catchPhrase);
+console.log(instructor2.catchPhrase);
+console.log(projectManager1.catchPhrase);
+console.log(projectManager2.catchPhrase);
+console.log(student1.name, student1.previousBackground, student1.className);
+console.log(student2.name, student1.previousBackground, student1.className);
+console.log(student3.name, student1.previousBackground, student1.className);
+
+
