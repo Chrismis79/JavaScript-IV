@@ -23,14 +23,21 @@ class Instructor extends Person {
     grade(subject){
         console.log(`${Student.name} receives a perfect score on ${subject}`);
     }
+    addGrade(Student){
+        const randomGrade = Math.floor(Math.random() * 101);
+       const newGrade = randomGrade + Student.grade;
+       return newGrade;
+    }       
 }
+
 
 class Student extends Person {
     constructor(studentAttrs){
         super(studentAttrs);
         this.previousBackground = studentAttrs.previousBackground,
         this.className = studentAttrs.className,
-        this.favSubjects = studentAttrs.favSubjects     
+        this.favSubjects = studentAttrs.favSubjects ,
+        this.grade = studentAttrs.grade    
     }
     listsSubjects(){
         this.favSubjects.forEach(function(i) {
@@ -43,6 +50,14 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun Sprint challenge on ${subject}.`);
     }
+    graduate(){
+        if(Student.grade > 70){
+            console.log(`${this.Student} can graduate!`);
+        } else {
+            console.log("Return to the drawing board!");
+        }
+    }
+
 }
 
 class ProjectManager extends Instructor {
@@ -91,7 +106,8 @@ const student1 = new Student({
     location: 'Tulsa',
     previousBackground: 'Nursing',
     className: 'Web 23',
-    favSubjects: ['React','CSS', 'JavaScript', 'UI/UX']
+    favSubjects: ['React','CSS', 'JavaScript', 'UI/UX'],
+    grade: 95
 })
 const student2 = new Student({
     name: 'Kevin',
@@ -99,7 +115,8 @@ const student2 = new Student({
     location: 'Boston',
     previousBackground: 'Clerk',
     className: 'Web 21',
-    favSubjects: ['Java','Python', 'JavaScript', 'C#']
+    favSubjects: ['Java','Python', 'JavaScript', 'C#'],
+    grade: 85
 })
 const student3 = new Student({
     name: 'Lori',
@@ -107,7 +124,8 @@ const student3 = new Student({
     location: 'Texas',
     previousBackground: 'Stay at home mom',
     className: 'UI/UX 4',
-    favSubjects: ['UI/UX','HTML','CSS', 'LESS']
+    favSubjects: ['UI/UX','HTML','CSS', 'LESS'],
+    grade: 68
 })
 const projectManager1 = new ProjectManager({
     name: 'Jack',
@@ -159,5 +177,10 @@ console.log(projectManager2.catchPhrase);
 console.log(student1.name, student1.previousBackground, student1.className);
 console.log(student2.name, student1.previousBackground, student1.className);
 console.log(student3.name, student1.previousBackground, student1.className);
+
+//Stretch
+console.log(instructor1.addGrade(student1));
+console.log(instructor2.addGrade(student2));
+console.log(student3.graduate());
 
 
